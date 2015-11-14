@@ -1,0 +1,17 @@
+---
+- name: eve
+  hosts: eveservers
+  sudo: true
+#  roles:
+#    - role: nrpe---
+
+  tasks:
+  - name: Install Python pip
+    apt: pkg={{ item }} update_cache=yes cache_valid_time=3600
+    with_items:
+      - build-essential
+      - python-dev
+      - python-pip
+
+  - name: Install Eve
+    pip: name=eve

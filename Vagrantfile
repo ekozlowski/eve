@@ -8,7 +8,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 end
   config.vm.define "eve" do |eve|
     eve.vm.network "private_network", ip: "192.168.50.10"
-    #eve.vm.network "forwarded_port", guest: 8080, host: 8080
+    eve.vm.network "forwarded_port", guest: 5000, host: 5000
     #eve.vm.network "forwarded_port", guest: 15672, host: 15672
     eve.vm.hostname = "eve.khome"
     eve.vm.box = "trusty64"

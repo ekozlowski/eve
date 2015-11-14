@@ -2,8 +2,6 @@
 - name: eve
   hosts: eveservers
   sudo: true
-#  roles:
-#    - role: nrpe---
 
   tasks:
   - name: Install Python pip
@@ -15,3 +13,11 @@
 
   - name: Install Eve
     pip: name=eve
+
+  - name: Create opt directory if it doesn't exist.
+    file:
+      state: directory
+      path: /opt/
+
+  - name: Deploy source file
+    copy: src=./src/main.py dest=/opt/main.py
